@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+    <style>
+        .account {
+            width: 400px;
+            border: 1px solid #dddddd;
+            border-radius: 5px;
+            box-shadow: 5px 5px 20px #aaa;
+
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 100px;
+            padding: 20px 40px;
+        }
+
+        .account h2 {
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style>
+<div class="account">
+    <h2>Register</h2>
+    <form method="post" novalidate>
+        {% csrf_token %}
+         {% for field in form %}
+             <div class="form-group">
+                 <label>{{ field.label }}</label>
+                 {{ field }} {{ field.help_text }}
+                 <span style="color: red;">{{ field.errors.0 }}</span>
+             </div>
+         {% endfor %}
+        <div class="d-md-flex align-content-center mt-2">
+            <input class="btn btn-primary m-auto" type="submit" value="Register">
+        </div>
+    </form>
+</div>
+
+{% endblock %}

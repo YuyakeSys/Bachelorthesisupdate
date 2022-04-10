@@ -14,10 +14,42 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from gamebox.views import main
+from django.urls import path, re_path
+from gamebox.views import home, account, device, user, cart, plan, game
+from django.views.static import serve
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', main.home),
+    path('', home.home),
+    path('user/profile', user.user_profile),
+
+    path('login/', account.login),
+    path('logout/', account.logout),
+    path('register/', account.register),
+    path('image/code/', account.image_code),
+
+
+    path('device/index/', device.device_index),
+    path('gameboxS/', device.gameboxS),
+
+    path('game/index/', game.game_list),
+    path('game/<int:gid>/detail/', game.game_detail),
+    path('cart/', cart.cart_list),
+    path('cart/checkout/', cart.checkout_menu),
+    path('update_item/', cart.updateItem, name="update_item"),
+    path('processOrder/', cart.processOrder),
+    path('game/comment/', game.comment_add),
+
+    path('plan/index/', plan.subscribe_index),
+    path('plan/checkout/<int:typeid>', plan.plan_checkout),
+    path('processPlan/', plan.processPlan),
+
+    path('intro/', home.info),
+    path('QaA/', home.qaa),
+    path('support/', home.support),
+
+    re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT},
+            name='media'),
 ]
+

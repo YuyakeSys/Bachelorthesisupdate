@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block css %}
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+{% endblock %}
+{% block content %}
+<div class="container">
+    <h2>Facts about GameBox</h2>
+    <p>GameBox enables digital transformation for the era of an intelligent cloud and an intelligent edge. Its mission is to empower
+        every person and every organization on the planet to achieve more.</p>
+    <h3>Corporate Address</h3>
+    <p>GameBox Corporation</p>
+</div>
+{% endblock %}
+
+{% block js %}
+<script src="https://webapi.amap.com/maps?v=1.4.15&key=19fba0bd1994d0a4663a0c54b3ed8151"></script>
+<script>
+    var map = new AMap.Map('container', {
+        resizeEnable: true, //是否监控地图容器尺寸变化
+        zoom:11, //初始化地图层级
+        center: [118.88776,31.928493] //初始化地图中心点
+    });
+</script>
+{% endblock %}

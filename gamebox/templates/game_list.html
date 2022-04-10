@@ -1,0 +1,55 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+    <div class="container ">
+        <div class="row text-center align-content-center">
+            {% for t in types %}
+                <div class="col-2">
+                    <a href='?type={{ t.gid }}' class="btn btn-sm select-game" role="button">{{ t.label }}</a>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="row">
+            <div class="col-2 offset-10 mt-1 mb-1">
+                <form method="get">
+                    <div class="input-group">
+                        <input type="text" name="g" class="form-control" placeholder="Search for..."
+                               value="{{ search_data }}">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </button>
+                      </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row m-auto">
+                {% for game in games %}
+                    <div class="col-lg-4">
+                        <img class="thumbnail" src="{{ game.imageURL }}">
+                        <div class="box-element product">
+                            <h6><strong>{{ game.name }}</strong></h6>
+                            <p class="small">Viewed: {{ game.views }}</p>
+                            <hr>
+
+                            <button data-game={{ game.id }} data-action="add" class="
+				btn btn-outline-secondary add-btn update-cart">Add to Cart
+                            </button>
+                            <a class="btn btn-outline-success" href="/game/{{ game.id }}/detail">View</a>
+                            <h4 style="display: inline-block; float: right">
+                                ${{ game.price|floatformat:2 }}</h4>
+
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination mt-4 ms-2">
+                    {{ page_string }}
+                </ul>
+            </nav>
+        </div>
+    </div>
+{% endblock content %}

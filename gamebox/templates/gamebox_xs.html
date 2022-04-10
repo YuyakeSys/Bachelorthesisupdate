@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block css %}
+ <link rel="stylesheet" href="{% static 'css/gamebox.css' %}">
+{% endblock %}
+
+{% block content %}
+</div>
+    <div class="video-wrapper">
+  <video playsinline autoplay muted loop>
+    <source src="{% static 'img/video.mp4' %}" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="header1">
+    <h1 class="text-start text-white ms-4 mt-5">New GameBox S</h1>
+  </div>
+</div>
+{% endblock %}

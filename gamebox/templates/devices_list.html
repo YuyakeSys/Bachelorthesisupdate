@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="'p-4 p-md-5 mb-4 text-white rounded bg-dark">
+        <div class="col-md-5 px-0">
+            <h2 class="fst-italic display-4">GameBox Consoles </h2>
+            <p class="lead my-3">'The best place to play'</p>
+        </div>
+    </div>
+    <div class="row mb-2">
+        <div class="col p-1 d-flex flex-column position-static">
+            <div class="card border-light">
+                <img src="{% static 'img/gamebox_S.jpg' %}" class="card-img-top" alt="gamebox_S">
+                <div class="card-body">
+                <h5 class="card-title">GameBox S</h5>
+                <p class="card-text">The most cost-efficient gaming console for beginners.</p>
+                <a href="/gameboxS/">Learn more <i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col p-1 d-flex flex-column position-static">
+            <div class="card border-light">
+                <img src="{% static 'img/gamebox_XS.jpg' %}" class="card-img-top" alt="gamebox_XS">
+                <div class="card-body">
+                <h5 class="card-title">GameBox XS</h5>
+                <p class="card-text">Advanced gaming console with enough performance for most 3A games</p>
+                </div>
+                <a href="/gameboxS/">Learn more <i class="fas fa-chevron-right"></i></a>
+            </div>
+        </div>
+        <div class="col p-1 d-flex flex-column position-static">
+            <div class="card border-light">
+                <img src="{% static 'img/gamebox_Pro.jpg' %}" class="card-img-top" alt="GameBox Pro XS">
+                <div class="card-body">
+                <h5 class="card-title">GameBox Pro XS</h5>
+                <p class="card-text">The most powerful gaming machine!</p>
+                <a href="#">Learn more <i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+video {
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 100%;
+    height: auto;
+}
+.video-wrapper {
+  width: 1920px;
+  height: 1400px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header1{
+  position: relative;
+  color: white;
+  text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
+}
+
+.parent{
+    position: relative;
+    left: 20%;
+}
+.over-img{
+    position: absolute;
+    top: 10%;
+    left: -5%;
+}

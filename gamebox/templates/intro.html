@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+
+{% block css %}
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <style>
+    body,
+    html,
+    #container1 {
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        font-family: "微软雅黑";
+    }
+    </style>
+    <script src="//api.map.baidu.com/api?type=webgl&v=1.0&ak=pnrOH86aWl0Y31YZ0yLvUcq9LmsfNEQN"></script>
+{% endblock %}
+{% block content %}
+<div class="container">
+    <h2 class="mb-1">Facts about GameBox</h2>
+    <p>GameBox enables digital transformation for the era of an intelligent cloud and an intelligent edge. Its mission is to empower
+        every person and every organization on the planet to achieve more.</p>
+    <h4>Corporate Address</h4>
+    <p>GameBox Corporation</p>
+    <p>No. 1, Hongjing Avenue, Jiangning Science Park, Nanjing</p>
+</div>
+    <div class="container align-content-start">
+        <div id="container1" style="width:500px;height:360px;border:1px solid gray;margin:30px auto"></div>
+    </div>
+{% endblock %}
+
+{% block js %}
+<script>
+var map = new BMapGL.Map('container1'); // 创建Map实例
+map.centerAndZoom(new BMapGL.Point(118.888,31.929), 14); // 初始化地图,设置中心点坐标和地图级别
+map.enableScrollWheelZoom(true); // 开启鼠标滚轮缩放
+</script>
+{% endblock %}

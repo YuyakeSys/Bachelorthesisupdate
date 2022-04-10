@@ -1,0 +1,188 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="game-bg">
+        <div class="breadcrumb">
+            <div class="container flex-fill small mt-2">
+                <a href="/game/index/" class="text-muted">All Games > </a>
+                <a href='/game/index/?type={{ game_info.label }}' class="text-muted">{{ game_info.get_label_display }}
+                    > </a>
+                <span class="text-muted">{{ game_info.name }}</span>
+            </div>
+        </div>
+        <p class="container fw-bold fs-2 text-white ps-lg-3">{{ game_info.name }}</p>
+        <div class="container-md ml-2">
+            <div class="row">
+                <div class="col-8">
+                    <img class="img-fluid ml-3" src="{{ game_info.image2URL }}">
+                </div>
+                <div class="col-4">
+                    <div class="card h-100 bg-transparent border-0">
+                        <div class="card-img-top">
+                            <img src="{{ game_info.imageURL }}" class="rounded mx-auto img-fluid d-block opacity-100">
+                        </div>
+                        <div class="card-body">
+                            <div>
+                                <span class="opacity-50 small text-white">Description:</span>
+                                <p class="text-white small">
+                                    {{ game_info.description }}
+                                </p>
+                            </div>
+                            <span class="opacity-50 small text-white">Tag:</span>
+                            <span class="text-white small">{{ game_info.get_label_display }}</span>
+                            <div>
+                                <span class="opacity-50 small text-white">Status</span>
+                                <span class="text-white small">{{ status }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="col-9 bg-gray bg-gradient mt-5 rounded">
+                <div class="row text-start">
+                    <h2 class="text-white p-2 col-auto ps-3">Buy {{ game_info.name }}</h2>
+                    <div class="offset-6 col-2 align-self-end">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                             class="bi bi-windows" viewBox="0 0 16 16">
+                            <path d="M6.555 1.375 0 2.237v5.45h6.555V1.375zM0 13.795l6.555.933V8.313H0v5.482zm7.278-5.4.026 6.378L16 16V8.395H7.278zM16 0 7.33 1.244v6.414H16V0z"/>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                             class="bi bi-apple" viewBox="0 0 16 16">
+                            <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282z"/>
+                            <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="if/else col-1 text-center offset-7">
+                        {% if game_info.discount != 1 %}
+                            <p class="fs-4 text-danger fw-bold">{{ game_info.getDiscount }}
+                        {% endif %}
+                    </div>
+                    <div class="m-1 col-1">
+                        {% if game_info.discount == 1 %}
+                            <div class="fs-5">${{ game_info.getPrice }}</div>
+                        {% else %}
+                            <div class="text-decoration-line-through fs-6">${{ game_info.price }}</div>
+                            <div class="fs-5">${{ game_info.getPrice }}</div>
+                        {% endif %}
+                    </div>
+                    <div class="justify-content-sm-end col-sm-2">
+                        <button data-game={{ game_info.id }} data-action="add" class="
+                        btn btn-success add-btn update-cart justify-content-md-end p-2 rounded">Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr/>
+    </div>
+    <div class="container bg-gradient">
+        <h3>Customer Review</h3>
+        <hr/>
+        <div class="panel panel-default">
+            <div class="panel-heading">Comment</div>
+            <div class="panel-body">
+
+                <form id="formAdd">
+
+                    <div class="clearfix">
+                        <div class="col-sm-6">
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group" style="position: relative;margin-bottom: 20px;">
+                                <label>game</label>
+                                <input type="text" value='{{ game_info.name }}' class="form-control" name="game" ;
+                                       readonly/>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group" style="position: relative;margin-bottom: 20px;">
+                                <label>Comment</label>
+                                <input type="text" class="form-control" name="comment"/>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group" style="position: relative;margin-bottom: 20px;">
+                                <label>Attitude</label>
+                                <input type="radio" name="attitude" value="1" checked/> Recommended
+                                <input type="radio" name="attitude" value="2"/> Not Recommended
+                                <span class="error-msg" style="color: red;position: absolute;"></span>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div id="liveAlertPlaceholder"></div>
+                            <button id="btnAdd" type="button" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+
+                </form>
+
+
+            </div>
+        </div>
+        {% for comment in comments %}
+            <div class="container">
+            <div class="card mb-2 border-light">
+                <div class="card-header">
+                    <div class="if/else mb-1 text-muted">
+                        {% if comment.attitude == 1 %}
+                            {{ comment.user.name }}   <i class="fa-solid fa-thumbs-up"></i></div>
+                        {% else %}
+                            {{ comment.user.name }}   <i class="fa-solid fa-thumbs-down"></i></div>
+                        {% endif %}
+                    </div>
+                            <div class="card-body mb-1 text-muted">
+                                <p class="card-text mb-auto">{{ comment.comment }}</p>
+                                {{ comment.date }}
+                            </div>
+                </div>
+            </div>
+            </div>
+        {% endfor %}
+    </div>
+
+
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript">
+        var alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+        $(function () {
+            bindBtnAddEvent();
+        })
+
+        function bindBtnAddEvent() {
+            $("#btnAdd").click(function () {
+                $("error-msg").empty();
+                $.ajax({
+                    url: '/game/comment/',
+                    type: "post",
+                    data: $("#formAdd").serialize(),
+                    dataType: "JSON",
+                    success: function (res) {
+                        if (res.status) {
+                            alert("123", 'success');
+                            setTimeout(5000)
+                            location.reload();
+                        } else {
+                            alert("456", 'danger');
+                            setTimeout(5000)
+                            location.reload();
+                        }
+                    }
+                })
+            })
+        }
+
+        function alert(message, type) {
+            var wrapper = document.createElement('div')
+            wrapper.innerHTML = '<div class="alert alert-' + type + ' alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
+
+            alertPlaceholder.append(wrapper)
+        }
+    </script>
+{% endblock %}

@@ -1,0 +1,195 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+
+{% block content %}
+    <header class="site-header sticky-top py-1">
+        <nav class="container d-flex flex-column flex-md-row justify-content-between">
+            <a class="py-2" href="#" aria-label="Product">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+                     stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img"
+                     viewBox="0 0 24 24"><title>Product</title>
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/>
+                </svg>
+            </a>
+            <a class="py-2 d-none d-md-inline-block" href="/game/index/">Games</a>
+            <a class="py-2 d-none d-md-inline-block" href="/intro/">Enterprise</a>
+            <a class="py-2 d-none d-md-inline-block" href="/QaA/">Q&A</a>
+            <a class="py-2 d-none d-md-inline-block" href="/cart/">Cart</a>
+        </nav>
+    </header>
+
+    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+        <div class="col-md-5 p-lg-5 mx-auto my-5">
+            <h1 class="display-4 fw-normal">GameBox Game Plus</h1>
+            <p class="lead fw-normal">Immerse yourself in a library of over 100 high-quality games. Enjoy the benefits
+                of Xbox Live Gold, EA Play, and play across devices from the cloud when you join Xbox Game Pass
+                Ultimate.</p>
+        </div>
+        <div class="product-device shadow-sm d-none d-md-block"></div>
+        <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+    </div>
+
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h2 class="featurette-heading">PLAY 100+ HIGH-QUALITY GAMES <span
+                    class="text-muted">It’ll blow your mind.</span></h2>
+            <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose
+                here.</p>
+        </div>
+        <div class="col-md-5">
+            <img class="img-fluid" src="{% static 'img/plan1.jpg' %}">
+
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading">Download and play in full fidelity. <span class="text-muted">See for yourself.</span>
+            </h2>
+            <p class="lead">Download and play online or offline from your Xbox console, Windows PC, or both with Xbox
+                Game Pass Ultimate.</p>
+        </div>
+        <div class="col-md-5 order-md-1">
+            <img class="img-fluid" src="{% static 'img/plan2.jpg' %}">
+
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h2 class="featurette-heading">Extra benefits for GameBox Game Pass Ultimate members<span
+                    class="text-muted">Checkmate.</span></h2>
+            <p class="lead">Look for Freebies here.</p>
+        </div>
+        <div class="col-md-5">
+            <img class="img-fluid" src="{% static 'img/dark_soul.jpg' %}">
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+    <!-- /END THE FEATURETTES -->
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="card border-success text-center h-100">
+                    <h5 class="card-title mt-3 fw-bold mb-2">Monthly Plan</h5>
+                    <p class="card-subtitle mb-2 text-muted small">Subscription continues automatically. See terms.</p>
+                    <div class="card-body">
+                        <ul>
+                            <li>
+                                <p>Play over 100 high-quality games on PC</p>
+                            </li>
+                            <li>
+                                <p>New games added all the time</p>
+                            </li>
+                        </ul>
+                        <a href="/plan/checkout/0" class="btn btn-primary rounded">Subscribe now!</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card border-success text-center h-100">
+                    <h5 class="card-title mt-3 fw-bold mb-2">Seasonal Plan</h5>
+                    <p class="card-subtitle mb-2 text-muted small">Subscription continues automatically. See terms.</p>
+                    <div class="card-body">
+                        <ul>
+                            <li>
+                                <p>Play over 100 high-quality games on PC</p>
+                            </li>
+                            <li>
+                                <p>New games added all the time</p>
+                            </li>
+                        </ul>
+                        <a href="/plan/checkout/1" class="btn btn-primary rounded">Subscribe now!</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card border-success text-center h-100">
+                    <h5 class="card-title mt-3 fw-bold mb-2">Half-year Plan</h5>
+                    <p class="card-subtitle mb-2 text-muted small">Subscription continues automatically. See terms.</p>
+                    <div class="card-body">
+                        <ul>
+                            <li>
+                                <p>Play over 100 high-quality games on PC</p>
+                            </li>
+                            <li>
+                                <p>New games added all the time</p>
+                            </li>
+                            <li>
+                                <p>Play over 100 high-quality games on console, PC, and mobile devices</p>
+                            </li>
+                        </ul>
+                        <a href="/plan/checkout/2" type="button" class="btn btn-primary rounded">Subscribe now!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4 mt-3 justify-content-around">
+            <div class="col col-lg-4">
+                <div class="card border-success text-center h-100">
+                    <h5 class="card-title fw-bold mb-2">Annual Plan</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <div class="card-body">
+                        <ul>
+                            <li>
+                                <p>Play over 100 high-quality games on PC</p>
+                            </li>
+                            <li>
+                                <p>New games added all the time</p>
+                            </li>
+                            <li>
+                                <p>Play over 100 high-quality games on console, PC, and mobile devices</p>
+                            </li>
+                            <li>
+                                <p>Free Perks including in-game content and partner offers</p>
+                            </li>
+                        </ul>
+                        <a href="/plan/checkout/3" type="button" class="btn btn-primary rounded">Subscribe now!</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-lg-4">
+                <div class="card border-success text-center h-100">
+                    <h5 class="card-title fw-bold mb-2">Lifetime Plan</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <div class="card-body">
+                        <ul>
+                            <li>
+                                <p>Play over 100 high-quality games on PC</p>
+                            </li>
+                            <li>
+                                <p>New games added all the time</p>
+                            </li>
+                            <li>
+                                <p>Play over 100 high-quality games on console, PC, and mobile devices</p>
+                            </li>
+                            <li>
+                                <p>Free Perks including in-game content and partner offers</p>
+                            </li>
+                            <li>
+                                <p>Freebies with limited number</p>
+                            </li>
+                        </ul>
+                        <a href="/plan/checkout/4" type="button" class="btn-primary">Subscribe Now!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Button trigger modal -->
+
+
+    </div>
+
+{% endblock %}

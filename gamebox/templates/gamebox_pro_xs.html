@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block css %}
+ <link rel="stylesheet" href="{% static 'css/gamebox.css' %}">
+{% endblock %}
+
+{% block content %}
+</div>
+    <div class="video-wrapper">
+  <video playsinline autoplay muted loop>
+    <source src="{% static 'img/video.mp4' %}" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="header1">
+    <h1 class="text-start text-white ms-4 mt-5">New GameBox S</h1>
+  </div>
+</div>
+    <div class="parent">
+        <div>
+            <img class="rounded" src="{% static 'img/inventory.jpg' %}">
+            <img class="over-img d-block mx-auto" src="{% static 'img/disk.png' %}">
+        </div>
+    </div>
+        <div class="container">
+
+            <h4 class="fw-bold">INCREASED INVENTORY.<br/> UNCOMPROMISED PERFORMANCE.</h4>
+        </div>
+{% endblock %}

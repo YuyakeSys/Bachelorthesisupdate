@@ -32,6 +32,7 @@ urlpatterns = [
 
     path('device/index/', device.device_index),
     path('gameboxS/', device.gameboxS),
+    path('gameboxXS/', device.gameboxXS),
 
     path('game/index/', game.game_list),
     path('game/<int:gid>/detail/', game.game_detail),
@@ -51,5 +52,8 @@ urlpatterns = [
 
     re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT},
             name='media'),
+    re_path(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT, }),
 ]
 
+
+handler404 = home.page_not_found
